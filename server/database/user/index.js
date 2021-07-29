@@ -53,7 +53,7 @@ UserSchema.pre("save", function (next) {
   const user = this;
 
   //password is modified
-  if (user.isModified("password")) return next();
+  if (!user.isModified("password")) return next();
 
   //generate bcrypt salt
   bcrypt.genSalt(8, (error, salt) => {
