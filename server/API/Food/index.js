@@ -10,11 +10,11 @@ const Router = express.Router();
 /*
 Route: /r
 Des:    Get all the food based on particular restaurant
-Params: id
+Params: _id
 Access: Public
 Method: GET
 */
-Router.get("/r/:_id", (req, res) => {
+Router.get("/r/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
     const foods = await FoodModel.find({ restaurant: _id });
@@ -32,7 +32,7 @@ Params: category
 Access: Public
 Method: GET
 */
-Router.get("/r/:category", (req, res) => {
+Router.get("/r/:category", async (req, res) => {
   try {
     const { category } = req.params;
     const foods = await FoodModel.find({
@@ -44,3 +44,5 @@ Router.get("/r/:category", (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
+
+export default Router;
