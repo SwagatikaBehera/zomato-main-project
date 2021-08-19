@@ -1,6 +1,5 @@
 //Libraries
 import express from "express";
-import passport from "passport";
 
 //Database model
 import { OrderModel } from "../../database/allModels";
