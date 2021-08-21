@@ -8,7 +8,7 @@ import passport from "passport";
 import { UserModel } from "../../database/user";
 
 // Validate
-import { validateSignup } from "../../validation/auth";
+import { validateSignup, validateSignin } from "../../validation/auth";
 
 const Router = express.Router();
 
@@ -47,6 +47,8 @@ Method: POST
 */
 Router.post("/signin", async (req, res) => {
   try {
+    await validateSignin(req.body.credentials);
+
     const user = await UserModel.findByEmailAndPassword(req.body.credentials);
 
     const token = user.generateJwtToken();
