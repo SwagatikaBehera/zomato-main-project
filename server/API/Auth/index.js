@@ -7,6 +7,9 @@ import passport from "passport";
 //Models
 import { UserModel } from "../../database/user";
 
+// Validate
+import { validateSignup } from "../../validation/auth";
+
 const Router = express.Router();
 
 /*
@@ -18,6 +21,8 @@ Method: POST
 */
 Router.post("/signup", async (req, res) => {
   try {
+    await validateSignup(req.body.credentials);
+
     await UserModel.findByEmailAndPhone(req.body.credentials);
 
     // save to DB
