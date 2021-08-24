@@ -5,6 +5,13 @@ import passport from "passport";
 //Database model
 import { RestuarantModel } from "../../database/allModels";
 
+// Validation
+import {
+  validateRestaurantCity,
+  validateRestaurantSearchString,
+} from "../../validation/restaurant";
+import { validateRestaurantId } from "../../validate/restaurant";
+
 const Router = express.Router();
 
 /*
@@ -17,6 +24,8 @@ Method: GET
 
 Router.get("/", async (req, res) => {
   try {
+    await validateRestaurantCity(req.query);
+
     const { city } = req.query;
     const restaurants = await RestuarantModel.find({ city });
 
@@ -35,6 +44,8 @@ Method: GET
 */
 Router.get("/:_id", async (req, res) => {
   try {
+    await validateRestaurantId(req.params);
+
     const { _id } = req.params;
     const restaurant = await RestuarantModel.findOne(_id);
     if (!restaurant)
@@ -56,14 +67,18 @@ Method: GET
 */
 Router.get("/search", async (req, res) => {
   try {
+    await validateRestaurantSearchString(req.body);
+    
     const { searchString } = req.body;
 
     const restaurants = await RestuarantModel.find({
-      name: { $regex: searchString, $options: "i" },  //i=case-insensitive
+      name: { $regex: searchString, $options: "i" }, //i=case-insensitive
     });
 
-    if(!restaurants)
-    return res.status(404).json({ error: `No Restaurant matched with ${searchString}` });
+    if (!restaurants)
+      return res
+        .status(404)
+        .json({ error: `No Restaurant matched with ${searchString}` });
 
     return res.json({ restaurants });
   } catch (error) {
@@ -72,5 +87,3 @@ Router.get("/search", async (req, res) => {
 });
 
 export default Router;
-
-
