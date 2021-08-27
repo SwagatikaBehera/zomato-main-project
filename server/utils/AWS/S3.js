@@ -1,5 +1,6 @@
 // libraries
 import AWS from "aws-sdk";
+//require('dotenv').config();
 
 //AWS S3 bucket config
 const s3Bucket = new AWS.S3({

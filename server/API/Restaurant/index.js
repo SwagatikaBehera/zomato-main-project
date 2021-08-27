@@ -10,7 +10,7 @@ import {
   validateRestaurantCity,
   validateRestaurantSearchString,
 } from "../../validation/restaurant";
-import { validateRestaurantId } from "../../validate/restaurant";
+import { validateRestaurantId } from "../../Validation/restaurant";
 
 const Router = express.Router();
 
