@@ -59,12 +59,12 @@ const NavbarLg = () => {
               />
             </div>
           </div>
-          <div className="flex items-center gap-3 ml-28">
+          <div className="flex items-center gap-5 ml-28">
             <button className="text-gray-500 hover:text-gray-900 text-xl">
-              LogIn
+              Login
             </button>
             <button className="text-gray-500 hover:text-gray-900 text-xl">
-              SignUp
+              Signup
             </button>
           </div>
         </div>
