@@ -27,7 +27,7 @@ const DeliveryLgCard = ({ image, title }) => {
           <img
             src={image}
             alt="Burger"
-            className="w-full h-full object-cover rounded-t-md"
+            className="w-full h-full object-cover rounded-md"
           />
         </div>
         <div>

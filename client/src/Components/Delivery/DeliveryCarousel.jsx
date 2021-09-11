@@ -1,4 +1,5 @@
 import React from "react";
+import Slider from "react-slick";
 
 // Components
 import DeliveryCategory from "./DeliveryCategory";
@@ -67,6 +68,14 @@ const DeliveryCarousel = () => {
     },
   ];
 
+  const settings = {
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slideToScroll: 1,
+  };
+
   return (
     <>
       <h1 className="text-xl font-semibold mb-4">
@@ -74,11 +83,17 @@ const DeliveryCarousel = () => {
       </h1>
       <div className="flex flex-wrap justify-between gap-4 lg:hidden">
         {categories.map((food) => (
-          <DeliveryCategory {...food}/>
+          <DeliveryCategory {...food} />
         ))}
       </div>
 
-      <div className="hidden lg:block"></div>
+      <div className="hidden lg:block">
+        <Slider {...settings}>
+          {categories.map((food) => (
+            <DeliveryCategory {...food} />
+          ))}
+        </Slider>
+      </div>
     </>
   );
 };
