@@ -109,7 +109,7 @@ const TabLg = () => {
 
   return (
     <>
-      <div className="hidden lg:flex container mx-auto px-52 gap-10">
+      <div className="hidden lg:flex container mx-auto px-52 border-b border-gray-200 gap-10">
         {allTypes.map((items) => (
           <Link to={`/${items.id}`}>
             <div

@@ -76,7 +76,7 @@ const NavbarLg = () => {
 const Navbar = () => {
   return (
     <>
-      <nav className="p-4 bg-white shadow-md">
+      <nav className="p-4 bg-white shadow-md lg:shadow-none">
         <NavbarSm />
         <NavbarLg />
       </nav>
