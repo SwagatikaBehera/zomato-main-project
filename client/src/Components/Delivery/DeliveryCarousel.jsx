@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 // Components
 import DeliveryCategory from "./DeliveryCategory";
+import { NextArrow, PrevArrow } from "../CarouselArrow";
 
 const DeliveryCarousel = () => {
   const categories = [
@@ -74,6 +75,8 @@ const DeliveryCarousel = () => {
     speed: 500,
     slidesToShow: 4,
     slideToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
