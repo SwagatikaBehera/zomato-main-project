@@ -1,28 +1,48 @@
 import React from "react";
 
-const DeliverySmCard = () => {
+const DeliverySmCard = ({ image, title }) => {
   return (
     <>
-      <div className="bg-white rounded-md shadow md:w-56 lg:hidden">
+      <div className="bg-white rounded-md shadow w-24 md:w-56 lg:hidden">
         <div className="w-full h-24 ">
           <img
-            src="https://b.zmtcdn.com/data/homepage_dish_data/4/6e69685d22c94ffd42ccd7e70e246bd9.png"
+            src={image}
             alt="Burger"
             className="w-full h-full object-cover rounded-t-md"
           />
         </div>
         <div>
-          <h3 className="text-sm font-light text-center py-1">Burger</h3>
+          <h3 className="text-sm font-light text-center py-1">{title}</h3>
         </div>
       </div>
     </>
   );
 };
 
-const DeliveryCategory = () => {
+const DeliveryLgCard = ({ image, title }) => {
   return (
     <>
-      <DeliverySmCard />
+      <div className=" hidden lg:block w-64 h-48">
+        <div className="w-full h-full ">
+          <img
+            src={image}
+            alt="Burger"
+            className="w-full h-full object-cover rounded-t-md"
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-medium py-1">{title}</h3>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const DeliveryCategory = (props) => {
+  return (
+    <>
+      <DeliverySmCard {...props} />
+      <DeliveryLgCard {...props} />
     </>
   );
 };
