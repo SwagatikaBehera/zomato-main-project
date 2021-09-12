@@ -17,6 +17,9 @@ module.exports = {
           900: "#1e0002",
         },
       },
+      boxShadow: {
+        card: "rgb(28 28 28 / 12%) 0px 0.4rem 1.8rem",
+      },
     },
   },
   variants: {
