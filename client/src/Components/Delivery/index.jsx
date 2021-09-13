@@ -52,6 +52,7 @@ const Delivery = () => {
     <>
       <DeliveryCarousel />
       <Brand />
+      <h1 className="text-3xl mb-6">Best Food in Bhubaneswar</h1>
       <div className="flex flex-wrap">
         {restaurantList.map((restaurant) => (
           <RestaurantCard {...restaurant} key={restaurant._id} />

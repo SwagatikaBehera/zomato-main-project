@@ -39,7 +39,6 @@ const Brand = (props) => {
         settings: {
           nextArrow: <NextArrowSm />,
           prevArrow: <PrevArrowSm />,
-          
         },
       },
     ],
