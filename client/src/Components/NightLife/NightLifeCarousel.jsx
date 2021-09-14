@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import PictureCarouselCard from "../PictureCarousel";
 import { NextArrow, PrevArrow } from "../CarouselArrow";
 
-const DiningCarousel = () => {
+const NightLifeCarousel = () => {
   const resPicture = [
     {
       image:
@@ -69,4 +69,4 @@ const DiningCarousel = () => {
   );
 };
 
-export default DiningCarousel;
+export default NightLifeCarousel;
