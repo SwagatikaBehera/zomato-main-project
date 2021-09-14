@@ -6,7 +6,6 @@ import {
   NextArrow,
   PrevArrow,
   NextArrowSm,
-  prevArrow,
   PrevArrowSm,
 } from "../CarouselArrow";
 
