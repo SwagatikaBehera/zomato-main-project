@@ -4,15 +4,15 @@ import { IoMdArrowDropright } from "react-icons/io";
 const PictureCarouselCard = (props) => {
   return (
     <>
-      <div className="w-full h-80 relative px-4">
+      <div className=" w-60 md:w-full h-60 md:h-80 relative px-2 md:px-4">
         <div className="relative w-full h-full">
           <img
             src={props.image}
             alt="restaurants and pubs"
-            className="w-full h-full rounded-lg object-cover"
+            className="w-full h-full rounded-md object-cover"
           />
           <div
-            className="w-full h-full absolute bottom-0 rounded-lg"
+            className="w-full h-full absolute bottom-0 rounded-md"
             style={{
               background:
                 "linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.05) 85%)",

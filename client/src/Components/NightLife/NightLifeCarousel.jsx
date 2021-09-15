@@ -47,8 +47,15 @@ const NightLifeCarousel = () => {
     slideToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+        },
+      },
+    ],
   };
-
   /*
    <Slider {...settings}>
           {resPicture.map((restaurant) => (
@@ -59,13 +66,21 @@ const NightLifeCarousel = () => {
         */
 
   return (
-    <div className="w-full">
-      <Slider {...settings}>
+    <>
+      <div className="flex w-max md:hidden">
         {resPicture.map((restaurant) => (
           <PictureCarouselCard {...restaurant} />
         ))}
-      </Slider>
-    </div>
+      </div>
+
+      <div className="w-full hidden md:block">
+        <Slider {...settings}>
+          {resPicture.map((restaurant) => (
+            <PictureCarouselCard {...restaurant} />
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 };
 
