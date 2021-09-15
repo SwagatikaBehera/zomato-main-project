@@ -6,7 +6,6 @@ export const NextArrow = (props) => {
       className={props.className}
       style={{
         ...props.style,
-        right:"2px",
         height: "42px",
         width: "42px",
         background: "black",
