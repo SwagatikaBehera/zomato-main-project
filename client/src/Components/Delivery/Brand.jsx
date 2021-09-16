@@ -44,7 +44,7 @@ const Brand = (props) => {
   };
 
   return (
-    <div className="my-5 mb-32">
+    <div className="my-20">
       <Slider {...settings}>
         {Logos.map((logo) => (
           <div className="w-24 h-24 bg-white shadow-md rounded-lg ">

@@ -22,12 +22,12 @@ const DeliverySmCard = ({ image, title }) => {
 const DeliveryLgCard = ({ image, title }) => {
   return (
     <>
-      <div className=" hidden lg:block w-64 h-48">
-        <div className="w-full h-full ">
+      <div className=" hidden lg:block w-full px-3 h-62">
+        <div className="w-full h-48 rounded-lg">
           <img
             src={image}
             alt="Burger"
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
         <div>
