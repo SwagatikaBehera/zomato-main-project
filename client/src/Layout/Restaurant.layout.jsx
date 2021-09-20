@@ -3,6 +3,7 @@ import React from "react";
 // Component
 import RestaurantNavbar from "../Components/Navbar/RestaurantNavbar";
 import FoodGrid from "../Components/Restaurant/foodGrid";
+import FoodInfo from "../Components/Restaurant/FoodInfo";
 
 const RestaurantLayout = () => {
   return (
@@ -18,6 +19,7 @@ const RestaurantLayout = () => {
             "https://b.zmtcdn.com/data/zomaland/a6750d1975cd3139cb91535088efb0c71578913426.jpeg",
           ]}
         />
+        <FoodInfo />
       </div>
     </>
   );
