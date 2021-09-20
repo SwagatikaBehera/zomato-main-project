@@ -19,7 +19,13 @@ const RestaurantLayout = () => {
             "https://b.zmtcdn.com/data/zomaland/a6750d1975cd3139cb91535088efb0c71578913426.jpeg",
           ]}
         />
-        <FoodInfo />
+        <FoodInfo
+          title="Burger King"
+          restaurantRating="4.3"
+          deliveryRating="4.4"
+          address="Patia, Bhubaneshwar"
+          cuisine="Burger, Fast Food, Beverages, Dessert"
+        />
       </div>
     </>
   );
