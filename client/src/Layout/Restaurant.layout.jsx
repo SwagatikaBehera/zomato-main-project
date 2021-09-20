@@ -1,9 +1,13 @@
 import React from "react";
+import { AiOutlineStar } from "react-icons/ai";
+import { BsBookmarkPlus } from "react-icons/bs";
+import { RiShareForwardLine, RiDirectionLine } from "react-icons/ri";
 
 // Component
 import RestaurantNavbar from "../Components/Navbar/RestaurantNavbar";
 import FoodGrid from "../Components/Restaurant/foodGrid";
 import FoodInfo from "../Components/Restaurant/FoodInfo";
+import InfoButtons from "../Components/Restaurant/InfoButtons";
 
 const RestaurantLayout = () => {
   return (
@@ -26,6 +30,24 @@ const RestaurantLayout = () => {
           address="Patia, Bhubaneshwar"
           cuisine="Burger, Fast Food, Beverages, Dessert"
         />
+
+        <div className="flex flex-wrap gap-2">
+          <InfoButtons isActive>
+            <AiOutlineStar /> Add Review
+          </InfoButtons>
+
+          <InfoButtons>
+            <RiDirectionLine /> Direction
+          </InfoButtons>
+
+          <InfoButtons>
+            <BsBookmarkPlus /> Bookmark
+          </InfoButtons>
+
+          <InfoButtons>
+            <RiShareForwardLine /> Share
+          </InfoButtons>
+        </div>
       </div>
     </>
   );
