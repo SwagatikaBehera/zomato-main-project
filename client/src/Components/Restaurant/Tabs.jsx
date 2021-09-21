@@ -8,11 +8,11 @@ const Tab = (props) => {
   return (
     <Link to={`/restaurant/${id}/${props.route}`}>
       <div
-        className={classnames("text-gray-500 text-lg px-4 py-2", {
-          "text-zomato-400 font-semibold": props.isActive,
+        className={classnames("text-gray-500 px-4 py-3 w-max", {
+          "text-zomato-400 border-b-2 border-zomato-400": props.isActive,
         })}
       >
-        <h3>{props.title}</h3>
+        <h3 className="text-lg">{props.title}</h3>
       </div>
     </Link>
   );
@@ -53,7 +53,7 @@ const TabContainer = (props) => {
 
   return (
     <>
-      <div className="flex items-center gap-3 md:gap-4 my-4">
+      <div className="flex items-center gap-3 md:gap-4 my-6 overflow-x-auto md:overflow-hidden md:border-b border-gray-200">
         {tabs.map((tab) => (
           <Tab {...tab} key={`123${tab.route}`} />
         ))}

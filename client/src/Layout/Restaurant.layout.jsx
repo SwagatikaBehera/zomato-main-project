@@ -10,7 +10,7 @@ import FoodInfo from "../Components/Restaurant/FoodInfo";
 import InfoButtons from "../Components/Restaurant/InfoButtons";
 import TabContainer from "../Components/Restaurant/Tabs";
 
-const RestaurantLayout = () => {
+const RestaurantLayout = (props) => {
   return (
     <>
       <RestaurantNavbar />
@@ -50,7 +50,9 @@ const RestaurantLayout = () => {
           </InfoButtons>
         </div>
 
-        <TabContainer />
+        <div>
+          <TabContainer />
+        </div>
       </div>
     </>
   );
