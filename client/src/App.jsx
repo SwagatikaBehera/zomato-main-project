@@ -17,7 +17,36 @@ function App() {
         <Redirect to="/Delivery" exact />
       </Route>
       <HomeLayoutHOC path="/:type" exact component={Home} />
-      <RestaurantLayoutHOC path="/restaurant/:id" exact component={RestaurantLayoutHOC} />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id"
+        exact
+        component={RestaurantLayoutHOC}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/menu"
+        exact
+        component={RestaurantLayoutHOC}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/overview"
+        exact
+        component={RestaurantLayoutHOC}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/order"
+        exact
+        component={RestaurantLayoutHOC}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/photos"
+        exact
+        component={RestaurantLayoutHOC}
+      />
+      <RestaurantLayoutHOC
+        path="/restaurant/:id/reviews"
+        exact
+        component={RestaurantLayoutHOC}
+      />
     </>
   );
 }
