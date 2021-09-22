@@ -9,28 +9,31 @@ import Temp from "./Components/temp";
 
 // Page
 import Home from "./Page/Home";
+import Overview from "./Page/Restaurant/Overview";
+
 
 function App() {
   return (
     <>
       <Route path="/" exact>
-        <Redirect to="/Delivery" exact />
+        <Redirect to="/Delivery"/>
       </Route>
+
+      <Route path="/restaurant/:id" exact>
+        <Redirect to="/restaurant/:id/overview"/>
+      </Route>
+
       <HomeLayoutHOC path="/:type" exact component={Home} />
-      <RestaurantLayoutHOC
-        path="/restaurant/:id"
-        exact
-        component={RestaurantLayoutHOC}
-      />
+
       <RestaurantLayoutHOC
         path="/restaurant/:id/menu"
         exact
-        component={RestaurantLayoutHOC}
+        component={Temp}
       />
       <RestaurantLayoutHOC
         path="/restaurant/:id/overview"
         exact
-        component={RestaurantLayoutHOC}
+        component={Overview}
       />
       <RestaurantLayoutHOC
         path="/restaurant/:id/order"
