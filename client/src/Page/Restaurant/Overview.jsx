@@ -4,17 +4,30 @@ import {
   IoMdArrowDropright,
   IoIosCheckmarkCircleOutline,
 } from "react-icons/io";
+import Slider from "react-slick";
 
 // Component
 import MenuCollections from "../../Components/Restaurant/MenuCollections";
+import OverviewSimilarRestaurant from "../../Components/Restaurant/overviewSimilarRestaurant";
+import { NextArrow, PrevArrow } from "../../Components/CarouselArrow";
 
 const Overview = () => {
   const { id } = useParams();
 
+  const settings = {
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slideToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
   return (
     <>
       <div className="flex flex-col md:flex-row">
-        <div className="w-full">
+        <div className="w-full md:w-8/12">
           <h2 className="text-xl md:text-2xl font-semibold mb-2 md:pb-6">
             About this place
           </h2>
@@ -34,7 +47,7 @@ const Overview = () => {
           />
 
           <h3 className="text-xl mb-3">Cuisines</h3>
-          <div className="flex gap-4 mb-6">
+          <div className="flex flex-wrap gap-4 mb-6">
             <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
               Burger
             </span>
@@ -71,7 +84,7 @@ const Overview = () => {
           </p>
 
           <h3 className="text-xl mb-3">More Info</h3>
-          <div className="flex items-center gap-56 mb-6">
+          <div className="flex items-center gap-6 md:gap-56 mb-6">
             <div className="flex flex-col gap-2">
               <span className="flex items-center gap-1 text-base font-light">
                 <IoIosCheckmarkCircleOutline className="text-2xl text-blue-600" />
@@ -96,12 +109,30 @@ const Overview = () => {
 
           <div>
             <h3 className="text-xl mb-3">Similar Restaurants</h3>
+            <Slider {...settings}>
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/chains/2/2900222/263e5a9cdf0128c15fa06d5990f36be9_featured_v2.jpg"
+                title="KFC"
+              />
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/2/19461322/69c3f6221a3850e154f530af25fda7ac_featured_v2.jpg"
+                title="KFC"
+              />
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/chains/1/2901221/7d4c7b59e76f8ec9b5f67b1da74bde2a_featured_v2.jpg"
+                title="KFC"
+              />
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/chains/1/18336901/e59e612b3dc79ab72dd1f12e6bdaf1ff_featured_v2.jpg"
+                title="KFC"
+              />
+            </Slider>
           </div>
         </div>
 
         <aside
           style={{ height: "fit-content" }}
-          className="hidden md:block md:w-2/5 sticky top-2 shadow-lg rounded-md p-3 m-6 bg-white shadow-xl"
+          className="hidden md:block md:w-4/12 sticky top-2 shadow-lg rounded-md p-3 m-6 bg-white shadow-xl"
         ></aside>
       </div>
     </>
