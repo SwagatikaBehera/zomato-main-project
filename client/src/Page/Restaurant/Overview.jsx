@@ -6,6 +6,7 @@ import {
 } from "react-icons/io";
 import Slider from "react-slick";
 import ReactStars from "react-rating-stars-component";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 // Component
 import MenuCollections from "../../Components/Restaurant/MenuCollections";
@@ -180,8 +181,40 @@ const Overview = () => {
 
         <aside
           style={{ height: "fit-content" }}
-          className="hidden md:block md:w-4/12 sticky top-2 shadow-lg rounded-md p-3 m-6 bg-white shadow-xl"
-        ></aside>
+          className="hidden md:block md:w-4/12 sticky top-2 shadow-lg rounded-lg p-4 m-6 bg-white shadow-xl"
+        >
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl">Call</h3>
+              <h5 className="text-zomato-400">+917208966745</h5>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-">Direction</h3>
+              <div className="w-full h-48">
+                <MapContainer
+                  center={[20.354293191646075, 85.82395582795968]}
+                  zoom={13}
+                  scrollWheelZoom={false}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={[20.354293191646075, 85.82395582795968]}>
+                    <Popup>
+                      A pretty CSS3 popup. <br /> Easily customizable.
+                    </Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
+              <div className="text-lg font-light">
+                Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha
+                751024
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </>
   );
