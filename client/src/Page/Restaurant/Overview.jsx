@@ -6,13 +6,13 @@ import {
 } from "react-icons/io";
 import Slider from "react-slick";
 import ReactStars from "react-rating-stars-component";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 // Component
 import MenuCollections from "../../Components/Restaurant/MenuCollections";
 import OverviewSimilarRestaurant from "../../Components/Restaurant/overviewSimilarRestaurant";
 import { NextArrow, PrevArrow } from "../../Components/CarouselArrow";
 import Review from "../../Components/Restaurant/Review/Review";
+import MapView from "../../Components/Restaurant/MapView";
 
 const Overview = () => {
   const { id } = useParams();
@@ -67,6 +67,15 @@ const Overview = () => {
             <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
               Desserts
             </span>
+          </div>
+
+          <div className=" mb-6 md:hidden">
+            <MapView
+              phoneNum="+917208966745"
+              mapLocation={[20.354293191646075, 85.82395582795968]}
+              title="Fork and Spoon"
+              address="Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha, 751024"
+            />
           </div>
 
           <h3 className="text-xl mb-2">Popular Dishes</h3>
@@ -181,39 +190,14 @@ const Overview = () => {
 
         <aside
           style={{ height: "fit-content" }}
-          className="hidden md:block md:w-4/12 sticky top-2 shadow-lg rounded-lg p-4 m-6 bg-white shadow-xl"
+          className="hidden md:block md:w-4/12 sticky top-2 rounded-lg p-4 m-6 bg-white shadow-md"
         >
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-xl">Call</h3>
-              <h5 className="text-zomato-400">+917208966745</h5>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h3 className="text-xl font-">Direction</h3>
-              <div className="w-full h-48">
-                <MapContainer
-                  center={[20.354293191646075, 85.82395582795968]}
-                  zoom={13}
-                  scrollWheelZoom={false}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={[20.354293191646075, 85.82395582795968]}>
-                    <Popup>
-                      A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                  </Marker>
-                </MapContainer>
-              </div>
-              <div className="text-lg font-light">
-                Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha
-                751024
-              </div>
-            </div>
-          </div>
+          <MapView
+            phoneNum="+917208966745"
+            mapLocation={[20.354293191646075, 85.82395582795968]}
+            title="Fork and Spoon"
+            address="Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha, 751024"
+          />
         </aside>
       </div>
     </>
