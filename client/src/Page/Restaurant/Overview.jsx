@@ -5,6 +5,7 @@ import {
   IoIosCheckmarkCircleOutline,
 } from "react-icons/io";
 import Slider from "react-slick";
+import ReactStars from "react-rating-stars-component";
 
 // Component
 import MenuCollections from "../../Components/Restaurant/MenuCollections";
@@ -22,6 +23,10 @@ const Overview = () => {
     slideToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+  };
+
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
   };
 
   return (
@@ -107,7 +112,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div>
+          <div className="mb-6">
             <h3 className="text-xl mb-3">Similar Restaurants</h3>
             <Slider {...settings}>
               <OverviewSimilarRestaurant
@@ -127,6 +132,24 @@ const Overview = () => {
                 title="KFC"
               />
             </Slider>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl mb-3">Rate your experience for</h3>
+            <div className="flex items-center gap-1 text-lg font-light">
+              <div className="mr-10">
+                <input type="radio" value="Delivery" /> Delivery
+              </div>
+              <div>
+                <input type="radio" value="Dining" /> Dining
+              </div>
+            </div>
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={26}
+              activeColor="#1cb1f5"
+            />
           </div>
         </div>
 
