@@ -11,6 +11,7 @@ import ReactStars from "react-rating-stars-component";
 import MenuCollections from "../../Components/Restaurant/MenuCollections";
 import OverviewSimilarRestaurant from "../../Components/Restaurant/overviewSimilarRestaurant";
 import { NextArrow, PrevArrow } from "../../Components/CarouselArrow";
+import Review from "../../Components/Restaurant/Review/Review";
 
 const Overview = () => {
   const { id } = useParams();
@@ -150,6 +151,12 @@ const Overview = () => {
               size={26}
               activeColor="#1cb1f5"
             />
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl text-zomato-400 mb-6">Write a reviews</h3>
+            <Review />
+            <Review />
           </div>
         </div>
 
