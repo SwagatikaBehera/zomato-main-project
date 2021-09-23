@@ -4,8 +4,8 @@ import { TiStar } from "react-icons/ti";
 const OverviewSimilarRestaurant = ({image,title}) => {
   return (
     <>
-      <div className="bg-white rounded-md w-52 md:w-60 md:h-68">
-        <div className="w-full md:h-52 rounded-md mb-2">
+      <div className="bg-white rounded-md w-52 md:w-60 h-68">
+        <div className="w-full h-52 rounded-md mb-2">
           <img
             src={image}
             alt="Burger"

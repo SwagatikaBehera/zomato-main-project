@@ -113,7 +113,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="mb-6">
+          <div className="mb-6 hidden lg:block">
             <h3 className="text-xl mb-3">Similar Restaurants</h3>
             <Slider {...settings}>
               <OverviewSimilarRestaurant
@@ -133,6 +133,24 @@ const Overview = () => {
                 title="KFC"
               />
             </Slider>
+          </div>
+
+          <h3 className="text-xl mb-3">Similar Restaurants</h3>
+          <div className="mb-6 overflow-x-auto md:hidden">
+            <div className="flex w-max gap-4">
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/chains/1/18336901/e59e612b3dc79ab72dd1f12e6bdaf1ff_featured_v2.jpg"
+                title="KFC"
+              />
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/2/19461322/69c3f6221a3850e154f530af25fda7ac_featured_v2.jpg"
+                title="KFC"
+              />
+              <OverviewSimilarRestaurant
+                image="https://b.zmtcdn.com/data/pictures/chains/2/2900222/263e5a9cdf0128c15fa06d5990f36be9_featured_v2.jpg"
+                title="KFC"
+              />
+            </div>
           </div>
 
           <div className="mb-6">
