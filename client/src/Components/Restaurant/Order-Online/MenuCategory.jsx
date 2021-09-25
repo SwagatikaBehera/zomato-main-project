@@ -5,16 +5,19 @@ const MenuCategory = (props) => {
   return (
     <>
       <div
-        className={classnames({
-          "text-zoamto-400 bg-zomato-100 border-r-2 border-zomato-400":
+        className={classnames("flex p-2", {
+          "text-zomato-400 bg-zomato-100 border-r-2 border-zomato-400":
             props.isActive,
         })}
-        onClick={props.onClickHandler}
-        id={props.name}
       >
-        <h4>
-          {props.name}({props.items.length})
+        <h4
+          className="pr-1 truncate ..."
+          id={props.name}
+          onClick={props.onClickHandler}
+        >
+          {props.name}
         </h4>
+        <h4>({props.items.length})</h4>
       </div>
     </>
   );
