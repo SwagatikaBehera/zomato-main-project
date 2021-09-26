@@ -6,7 +6,7 @@ const MenuCategory = (props) => {
     <>
       <div
         className={classnames("flex p-2", {
-          "text-zomato-400 bg-zomato-100 border-r-2 border-zomato-400":
+          "text-zomato-400 bg-red-100 border-r-2 border-zomato-400":
             props.isActive,
         })}
       >
