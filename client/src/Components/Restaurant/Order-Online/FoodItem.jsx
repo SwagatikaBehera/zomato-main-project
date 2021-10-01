@@ -5,7 +5,7 @@ import { BsPlus } from "react-icons/bs";
 const FoodItem = (props) => {
   return (
     <>
-      <div className="flex items-start md:items-center gap-4 mb-20">
+      <div className="flex items-start md:items-center gap-4">
         <div className="md:w-1/6 w-4/12 h-32 md:h-40 rounded-md">
           <img
             src={props.image}
