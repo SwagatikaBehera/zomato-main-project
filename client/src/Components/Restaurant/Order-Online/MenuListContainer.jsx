@@ -15,7 +15,7 @@ const MenuListContainer = (props) => {
 
   return (
     <>
-      <div className="flex flex-col gap-1 p-2 md:pr-0 h-full overflow-y-scroll md:overflow-hidden shadow-md md:shadow-none  rounded-md md:rounded-none">
+      <div className="flex flex-col gap-1 p-2 md:pr-0 h-full overflow-y-scroll md:overflow-hidden shadow-md md:shadow-none rounded-md md:rounded-none">
         <MenuCategory
           name="Recommended"
           items={["", ""]}
