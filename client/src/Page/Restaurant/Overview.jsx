@@ -167,10 +167,10 @@ const Overview = () => {
             <h3 className="text-xl mb-3">Rate your experience for</h3>
             <div className="flex items-center gap-1 text-lg font-light">
               <div className="mr-10">
-                <input type="radio" value="Delivery" /> Delivery
+                <input type="radio" value="Delivery" name="review" /> Delivery
               </div>
               <div>
-                <input type="radio" value="Dining" /> Dining
+                <input type="radio" value="Dining" name="review" /> Dining
               </div>
             </div>
             <ReactStars

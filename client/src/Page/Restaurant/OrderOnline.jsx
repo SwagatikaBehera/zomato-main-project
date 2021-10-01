@@ -4,14 +4,13 @@ import { BiTimeFive } from "react-icons/bi";
 
 // Component
 import FloatMenubtn from "../../Components/Restaurant/Order-Online/FloatMenubtn";
-import FoodItem from "../../Components/Restaurant/Order-Online/FoodItem";
 import FoodList from "../../Components/Restaurant/Order-Online/FoodList";
 import MenuListContainer from "../../Components/Restaurant/Order-Online/MenuListContainer";
 
 const OrderOnline = () => {
   return (
     <>
-      <div className="w-full h-screen  flex">
+      <div className="w-full h-screen flex">
         <aside className="hidden md:block w-1/5 border-r h-screen sticky top-0">
           <MenuListContainer />
         </aside>
@@ -30,7 +29,7 @@ const OrderOnline = () => {
             </h4>
           </div>
 
-          <section className="flex flex-col gap-3 md:gap-10 h-screen overflow-y-scroll">
+          <section className="flex flex-col gap-3 md:gap-10 h-screen md:overflow-y-scroll">
             <FoodList
               title="Recommended"
               items={[
