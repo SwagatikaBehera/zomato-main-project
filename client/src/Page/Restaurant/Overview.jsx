@@ -50,7 +50,10 @@ const Overview = () => {
           <MenuCollections
             menuTitle="Menu"
             pages="4"
-            image="https://b.zmtcdn.com/data/menus/277/18921277/50a7b1f53c8eb5ef92971e844678343f.jpg"
+            image={[
+              "https://b.zmtcdn.com/data/menus/277/18921277/50a7b1f53c8eb5ef92971e844678343f.jpg",
+              "https://b.zmtcdn.com/data/menus/277/18921277/bdb0c51a6f6037748307f3cdd761af32.jpg",
+            ]}
           />
 
           <h3 className="text-xl mb-3">Cuisines</h3>

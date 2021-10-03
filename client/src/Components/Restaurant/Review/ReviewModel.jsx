@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Rating from "react-rating-stars-component";
 
-export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
+export default function ReviewModal({ isOpen, setIsOpen,handleRating, ...props }) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -64,7 +64,7 @@ export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
                     </div>
                   </div>
                   <div>
-                    <Rating count={5} size={28} />
+                    <Rating count={5} size={28} onChange={handleRating} />
                   </div>
 
                   <form className="w-full flex flex-col gap-6 mt-4">
