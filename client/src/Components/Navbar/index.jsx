@@ -10,6 +10,7 @@ import SignUp from "../Auth/Signup";
 
 const NavbarSm = ({ SignIn, SignUp }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const closeDropDown = () => setIsDropDownOpen(false);
 
   return (
     <div className="flex items-center justify-between lg:hidden">
@@ -32,7 +33,10 @@ const NavbarSm = ({ SignIn, SignUp }) => {
           <FaUserAlt />
         </span>
         {isDropDownOpen && (
-          <div className="absolute w-full bg-white z-10 flex flex-col gap-1 -bottom-28 -right-2 py-2 shadow-lg bg-zomato-100 rounded">
+          <div
+            className="absolute w-full bg-white z-10 flex flex-col gap-1 -bottom-28 -right-2 py-2 shadow-lg bg-zomato-100 rounded"
+            onClick={closeDropDown}
+          >
             <button
               className="text-lg font-medium focus:bg-zomato-200 py-1"
               onClick={SignIn}
