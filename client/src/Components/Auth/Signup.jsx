@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
-export default function SignIn({ isOpen, setIsOpen }) {
+export default function SignUp({ isOpen, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -49,21 +49,23 @@ export default function SignIn({ isOpen, setIsOpen }) {
                   as="h3"
                   className="hidden md:block text-3xl font-medium leading-6 text-gray-700"
                 >
-                  Log in
+                  Sign Up
                 </Dialog.Title>
                 <div className="mt-6 w-full flex flex-col gap-4">
                   <form className="flex flex-col gap-4">
-                    <div className="w-full flex flex-col gap-4">
-                      <label htmlfor="email" className="text-xl">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        placeholder="email@gmail.com"
-                        className="w-full placeholder-gray-500 placeholder-opacity-50  border border-gray-400 focus:border-zomato-400 text-xl focus:outline-none rounded-md p-2"
-                      />
-                    </div>
+                    <input
+                      type="email"
+                      id="fullname"
+                      placeholder="Full Name"
+                      className="w-full placeholder-gray-500 placeholder-opacity-50  border border-gray-400 focus:border-zomato-400 text-xl focus:outline-none rounded-md p-2"
+                    />
+
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="email@gmail.com"
+                      className="w-full placeholder-gray-500 placeholder-opacity-50  border border-gray-400 focus:border-zomato-400 text-xl focus:outline-none rounded-md p-2"
+                    />
 
                     <div className="w-full flex flex-col gap-4">
                       <label htmlfor="password" className="text-xl">
@@ -77,7 +79,7 @@ export default function SignIn({ isOpen, setIsOpen }) {
                       />
                     </div>
                     <div className="w-full text-center bg-zomato-400 text-white py-2 rounded-lg">
-                      Log In
+                      Sign Up
                     </div>
                   </form>
 

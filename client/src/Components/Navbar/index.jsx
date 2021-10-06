@@ -6,8 +6,9 @@ import { BiSearch } from "react-icons/bi";
 
 // Component
 import SignIn from "../Auth/Signin";
+import SignUp from "../Auth/Signup";
 
-const NavbarSm = ({ SignIn }) => {
+const NavbarSm = ({ SignIn, SignUp }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   return (
@@ -39,7 +40,10 @@ const NavbarSm = ({ SignIn }) => {
               Log In
             </button>
 
-            <button className="text-lg font-medium focus:bg-zomato-200 py-1">
+            <button
+              className="text-lg font-medium focus:bg-zomato-200 py-1"
+              onClick={SignUp}
+            >
               Sign Up
             </button>
           </div>
@@ -49,7 +53,7 @@ const NavbarSm = ({ SignIn }) => {
   );
 };
 
-const NavbarLg = ({ SignIn }) => {
+const NavbarLg = ({ SignIn, SignUp }) => {
   return (
     <>
       <div className="container mx-auto px-48 ">
@@ -89,7 +93,10 @@ const NavbarLg = ({ SignIn }) => {
             >
               Login
             </button>
-            <button className="text-gray-500 hover:text-gray-900 text-xl">
+            <button
+              className="text-gray-500 hover:text-gray-900 text-xl"
+              onClick={SignUp}
+            >
               Signup
             </button>
           </div>
@@ -101,15 +108,18 @@ const NavbarLg = ({ SignIn }) => {
 
 const Navbar = () => {
   const [openLogIn, setOpenLogIn] = useState(false);
+  const [openSignUp, setOpenSignUp] = useState(false);
 
   const openLogInModel = () => setOpenLogIn(true);
+  const openSignUpModel = () => setOpenSignUp(true);
 
   return (
     <>
-      <SignIn isOpen={openLogIn} setIsOpen={setOpenLogIn} />
+      <SignIn isOpen={openLogIn} setIsOpen={setOpenSignUp} />
+      <SignUp isOpen={openSignUp} setIsOpen={setOpenLogIn} />
       <nav className="p-4 bg-white shadow-md lg:shadow-none">
-        <NavbarSm SignIn={openLogInModel} />
-        <NavbarLg SignIn={openLogInModel} />
+        <NavbarSm SignIn={openLogInModel} SignUp={openSignUpModel} />
+        <NavbarLg SignIn={openLogInModel} SignUp={openSignUpModel} />
       </nav>
     </>
   );
