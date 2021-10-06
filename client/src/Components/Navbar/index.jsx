@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 
-const NavbarSm = () => {
+// Component
+import SignIn from "../Auth/Signin";
+
+const NavbarSm = ({ SignIn }) => {
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+
   return (
     <div className="flex items-center justify-between lg:hidden">
       <div className="w-28">
@@ -14,19 +19,37 @@ const NavbarSm = () => {
           className="w-full h-full"
         />
       </div>
-      <div className="flex items-center gap-3">
+
+      <div className="flex items-center gap-3 relative">
         <button className="bg-zomato-400 text-white py-1.5 px-3 rounded-full">
           Use App
         </button>
-        <span className="border border-gray-300 p-2.5 text-zomato-400 rounded-full">
+        <span
+          className="border border-gray-300 p-2.5 text-zomato-400 rounded-full"
+          onClick={() => setIsDropDownOpen((prev) => !prev)}
+        >
           <FaUserAlt />
         </span>
+        {isDropDownOpen && (
+          <div className="absolute w-full bg-white z-10 flex flex-col gap-1 -bottom-28 -right-2 py-2 shadow-lg bg-zomato-100 rounded">
+            <button
+              className="text-lg font-medium focus:bg-zomato-200 py-1"
+              onClick={SignIn}
+            >
+              Log In
+            </button>
+
+            <button className="text-lg font-medium focus:bg-zomato-200 py-1">
+              Sign Up
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-const NavbarLg = () => {
+const NavbarLg = ({ SignIn }) => {
   return (
     <>
       <div className="container mx-auto px-48 ">
@@ -60,7 +83,10 @@ const NavbarLg = () => {
             </div>
           </div>
           <div className="flex items-center gap-5 ml-28">
-            <button className="text-gray-500 hover:text-gray-900 text-xl">
+            <button
+              className="text-gray-500 hover:text-gray-900 text-xl"
+              onClick={SignIn}
+            >
               Login
             </button>
             <button className="text-gray-500 hover:text-gray-900 text-xl">
@@ -74,11 +100,16 @@ const NavbarLg = () => {
 };
 
 const Navbar = () => {
+  const [openLogIn, setOpenLogIn] = useState(false);
+
+  const openLogInModel = () => setOpenLogIn(true);
+
   return (
     <>
+      <SignIn isOpen={openLogIn} setIsOpen={setOpenLogIn} />
       <nav className="p-4 bg-white shadow-md lg:shadow-none">
-        <NavbarSm />
-        <NavbarLg />
+        <NavbarSm SignIn={openLogInModel} />
+        <NavbarLg SignIn={openLogInModel} />
       </nav>
     </>
   );
