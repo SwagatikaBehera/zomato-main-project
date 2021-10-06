@@ -13,7 +13,7 @@ const MapView = (props) => {
 
         <div className="flex flex-col gap-3">
           <h3 className="text-xl">Direction</h3>
-          <div className="w-full h-48">
+          <div className="w-full h-48 z-20">
             <MapContainer
               center={props.mapLocation}
               zoom={13}
