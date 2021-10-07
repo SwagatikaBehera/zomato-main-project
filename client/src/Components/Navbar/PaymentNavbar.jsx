@@ -5,7 +5,7 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 const PaymentNavbar = () => {
   return (
     <>
-      <nav className="p-4 bg-white shadow-md lg:shadow-none lg:px-60">
+      <nav className="hidden md:block p-4 bg-white shadow-md lg:shadow-none lg:px-60">
         <div className="flex items-center justify-between">
           <HiArrowNarrowLeft />
           <div className="w-28">

@@ -7,7 +7,7 @@ const PaymentLayout = (props) => {
   return (
     <>
       <PaymentNavbar />
-      <div className="container mx-auto px-4 lg:px-52">{props.children}</div>
+      <div className="container mx-auto md:px-4 lg:px-52">{props.children}</div>
     </>
   );
 };
