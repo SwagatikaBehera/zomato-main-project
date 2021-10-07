@@ -1,9 +1,26 @@
 import React from "react";
+import { BsShieldLockFill } from "react-icons/bs";
 
 // Component
 import FoodItems from "../Components/Cart/FoodItems";
+import PaymentAddressList from "../Components/Payments/Address";
 
 const Checkout = () => {
+  const address = [
+    {
+      name: "Home",
+      address: "India",
+    },
+    {
+      name: "Gym",
+      address: "India",
+    },
+    {
+      name: "Office",
+      address: "India",
+    },
+  ];
+
   return (
     <>
       <div className="my-3 flex flex-col gap-3 items-center">
@@ -23,6 +40,13 @@ const Checkout = () => {
             <FoodItems name="Burger" quantity={3} price={33} />
             <FoodItems name="Burger" quantity={3} price={33} />
             <FoodItems name="Burger" quantity={3} price={33} />
+          </div>
+          <div className="flex flex-col items-center gap-3 md:w-3/5 w-full">
+            <h4 className="text-lg font-semibold ">Select Address</h4>
+            <PaymentAddressList address={address} />
+            <button className="flex items-center gap-2 justify-center my-4 md:my-8 w-full px-4 md:w-4/5 px-0 h-14 text-white font-medium text-lg bg-zomato-400 rounded-lg">
+              Pay Securely <BsShieldLockFill />
+            </button>
           </div>
         </div>
       </div>
