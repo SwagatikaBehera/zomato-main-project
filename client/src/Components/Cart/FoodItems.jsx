@@ -3,7 +3,7 @@ import React from "react";
 const FoodItems = (props) => {
   return (
     <>
-      <div className="flex justify-between text-lg">
+      <div className="flex justify-between">
         <h5>{props.name}</h5>
         <div className="flex flex-col items-end gap-2">
           <h5>₹{parseInt(props.price) * parseInt(props.quantity)}</h5>
