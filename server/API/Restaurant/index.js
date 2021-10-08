@@ -15,6 +15,45 @@ import { validateRestaurantId } from "../../Validation/restaurant";
 const Router = express.Router();
 
 /*
+ Route:   /restaurants/new
+ Des:     add new restaurant
+ Access:  PRIVATE
+Method:   POST
+*/
+
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const newRestaurant = await RestuarantModel.create(req.body.restaurantData);
+    return res.json({ restaurants: newRestaurant });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+/*
+ Route:   /restaurants/update
+ Des:     update existing restaurant data
+ Access:  PRIVATE
+Method:   PATCH
+*/
+
+Router.patch("/update", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const updatedRestaurant = await RestuarantModel.findByIdAndUpdate(
+      req.body.restaurantData._id,
+      { $set: req.body.restaurantData },
+      { new: true }
+    );
+    if (!updatedRestaurant)
+      return res.status(404).json({ restaurants: "Restaurant Not Found!!!" });
+
+    return res.json({ restaurants: updatedRestaurant });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+/*
 Route: /
 Des:    Get all the restaurant details based in city
 Params: none
@@ -68,7 +107,7 @@ Method: GET
 Router.get("/search", async (req, res) => {
   try {
     await validateRestaurantSearchString(req.body);
-    
+
     const { searchString } = req.body;
 
     const restaurants = await RestuarantModel.find({

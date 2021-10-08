@@ -11,6 +11,24 @@ import { validateRestaurantId, validateCategory } from "../../validation/food";
 const Router = express.Router();
 
 /*
+Route: /foods/new
+Des:    add new food record to database
+Params: none
+Access: PRIVATE
+Method: POST
+*/
+
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const { foodData } = req.body;
+    const newFood = await FoodModel.create(foodData);
+    return res.json({ foods: newFood });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+/*
 Route: /r
 Des:    Get all the food based on particular restaurant
 Params: _id
