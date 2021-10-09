@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TiStar } from "react-icons/ti";
+import { useDispatch } from "react-redux";
+import { getImage } from "../Redux/Reducer/Image/Image.action";
 
 const RestaurantCard = (props) => {
+  const [images, setImages] = useState({
+    image: [],
+  });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    props.photos &&
+      dispatch(getImage(props.photos)).then((data) => setImages(data.payload.image));
+  }, [props.photos]);
+
   return (
     <>
       <div className=" w-full h-full md:w-1/2 lg:w-1/3 px-2">
@@ -27,7 +40,7 @@ const RestaurantCard = (props) => {
             </div>
 
             <img
-              src={props.photos.length && props.photos[0]}
+              src={images.image.length && images.image[0].location}
               alt="food"
               className="w-full h-full rounded-t-2xl md:rounded-2xl"
             />
@@ -49,7 +62,6 @@ const RestaurantCard = (props) => {
                 ₹{props.averageCost} for one
               </p>
             </div>
-
           </div>
         </div>
       </div>
