@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
   IoMdArrowDropright,
@@ -14,7 +15,12 @@ import { NextArrow, PrevArrow } from "../../Components/CarouselArrow";
 import Review from "../../Components/Restaurant/Review/Review";
 import MapView from "../../Components/Restaurant/MapView";
 
+// Redux
+import { getImage } from "../../Redux/Reducer/Image/Image.action";
+
 const Overview = () => {
+  const [menuImage, setMenuImage] = useState({ image: [] });
+
   const { id } = useParams();
 
   const settings = {
@@ -26,6 +32,22 @@ const Overview = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (reduxState) {
+      dispatch(getImage(reduxState.menuImages)).then((data) => {
+        const images = [];
+        data.payload.image.image.map(({ location }) => images.push(location));
+        setMenuImage(images);
+      });
+    }
+  }, []);
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
@@ -47,14 +69,7 @@ const Overview = () => {
             </Link>
           </div>
 
-          <MenuCollections
-            menuTitle="Menu"
-            pages="4"
-            image={[
-              "https://b.zmtcdn.com/data/menus/277/18921277/50a7b1f53c8eb5ef92971e844678343f.jpg",
-              "https://b.zmtcdn.com/data/menus/277/18921277/bdb0c51a6f6037748307f3cdd761af32.jpg",
-            ]}
-          />
+          <MenuCollections menuTitle="Menu" pages="4" image={menuImage} />
 
           <h3 className="text-xl mb-3">Cuisines</h3>
           <div className="flex flex-wrap gap-4 mb-6">
