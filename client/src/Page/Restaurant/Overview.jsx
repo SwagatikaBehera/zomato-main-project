@@ -41,7 +41,7 @@ const Overview = () => {
 
   useEffect(() => {
     if (reduxState) {
-      dispatch(getImage(reduxState.menuImages)).then((data) => {
+      dispatch(getImage(reduxState?.menuImages)).then((data) => {
         const images = [];
         data.payload.image.image.map(({ location }) => images.push(location));
         setMenuImage(images);
@@ -51,6 +51,10 @@ const Overview = () => {
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
+  };
+
+  const getLatLong = (mapAddress) => {
+    return mapAddress.split(",").map((item) => parseFloat(item));
   };
 
   return (
@@ -73,26 +77,19 @@ const Overview = () => {
 
           <h3 className="text-xl mb-3">Cuisines</h3>
           <div className="flex flex-wrap gap-4 mb-6">
-            <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
-              Burger
-            </span>
-            <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
-              Fast Food
-            </span>
-            <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
-              Beverages
-            </span>
-            <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
-              Desserts
-            </span>
+            {reduxState?.cuisine.map((data) => (
+              <span className="border shadow-sm text-blue-400 rounded-full p-2 text-lg">
+                {data}
+              </span>
+            ))}
           </div>
 
           <div className=" mb-6 md:hidden">
             <MapView
-              phoneNum="+917208966745"
-              mapLocation={[20.354293191646075, 85.82395582795968]}
-              title="Fork and Spoon"
-              address="Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha, 751024"
+              phoneNum={`+91${reduxState?.contactNumber}`}
+              mapLocation={getLatLong(reduxState?.mapLocation)}
+              title={reduxState?.name}
+              address={reduxState?.address}
             />
           </div>
 
@@ -108,7 +105,9 @@ const Overview = () => {
           </p>
 
           <h3 className="text-xl mb-2">Average Cost</h3>
-          <p className="text-lg font-light">₹400 for two people (approx.)</p>
+          <p className="text-lg font-light">
+            ₹{reduxState?.averageCost} for two people (approx.)
+          </p>
           <p className="text-sm font-thin mb-6">
             Exclusive of applicable taxes and charges, if any
           </p>
@@ -211,10 +210,10 @@ const Overview = () => {
           className="hidden md:block md:w-4/12 sticky top-2 rounded-lg p-4 m-6 bg-white shadow-md"
         >
           <MapView
-            phoneNum="+917208966745"
-            mapLocation={[20.354293191646075, 85.82395582795968]}
-            title="Fork and Spoon"
-            address="Fork and Spoon, KIIT Road, Aryapalli, Patia, Bhubaneswar, Odisha, 751024"
+            phoneNum={`+91${reduxState?.contactNumber}`}
+            mapLocation={getLatLong(reduxState?.mapLocation)}
+            title={reduxState?.name}
+            address={reduxState?.address}
           />
         </aside>
       </div>
