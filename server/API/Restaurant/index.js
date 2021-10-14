@@ -10,7 +10,7 @@ import {
   validateRestaurantCity,
   validateRestaurantSearchString,
 } from "../../validation/restaurant";
-import { validateRestaurantId } from "../../Validation/restaurant";
+import { validateRestaurantId } from "../../Validation/food";
 
 const Router = express.Router();
 
@@ -86,7 +86,7 @@ Router.get("/:_id", async (req, res) => {
     await validateRestaurantId(req.params);
 
     const { _id } = req.params;
-    const restaurant = await RestuarantModel.findOne(_id);
+    const restaurant = await RestuarantModel.findById(_id);
     if (!restaurant)
       return res.status(400).json({ error: "Restaurant Not Found" });
 
