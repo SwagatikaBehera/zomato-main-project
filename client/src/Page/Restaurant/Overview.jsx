@@ -17,9 +17,11 @@ import MapView from "../../Components/Restaurant/MapView";
 
 // Redux
 import { getImage } from "../../Redux/Reducer/Image/Image.action";
+import { getReviews } from "../../Redux/Reducer/reviews/reviews.action";
 
 const Overview = () => {
   const [menuImage, setMenuImage] = useState({ image: [] });
+  const [reviews, setReviews] = useState([]);
 
   const { id } = useParams();
 
@@ -46,6 +48,10 @@ const Overview = () => {
         data.payload.image.image.map(({ location }) => images.push(location));
         setMenuImage(images);
       });
+
+      dispatch(getReviews(reduxState?._id)).then((data) =>
+        setReviews(data.payload.reviews)
+      );
     }
   }, []);
 
@@ -54,7 +60,7 @@ const Overview = () => {
   };
 
   const getLatLong = (mapAddress) => {
-    return mapAddress.split(",").map((item) => parseFloat(item));
+    return mapAddress?.split(",")?.map((item) => parseFloat(item));
   };
 
   return (
@@ -200,8 +206,9 @@ const Overview = () => {
 
           <div className="mb-6">
             <h3 className="text-xl text-zomato-400 mb-6">Write a reviews</h3>
-            <Review />
-            <Review />
+            {reviews.map((reviewData) => (
+              <Review {...reviewData} />
+            ))}
           </div>
         </div>
 
