@@ -14,7 +14,7 @@ const FloatMenubtn = () => {
 
   return (
     <>
-      <div className="fixed bottom-2 right-2 w-3/6 flex flex-col gap-3 items-end md:hidden">
+      <div className="fixed bottom-2 z-10 right-2 w-3/6 flex flex-col gap-3 items-end md:hidden">
         {isClicked && (
           <div className="bg-white w-full h-56 border">
             <MenuListContainer />

@@ -12,7 +12,7 @@ import FoodItems from "./FoodItems";
 const CartSm = ({ toggle }) => {
   return (
     <>
-      <div className="flex items-center justify-between w-full md:hidden">
+      <div className="flex items-center justify-between w-full hidden">
         <div className="flex flex-col gap-1 items-start">
           <h4 className="flex items-center gap-1" onClick={toggle}>
             1 item <IoMdArrowDropup className="text-2xl" />
@@ -21,7 +21,7 @@ const CartSm = ({ toggle }) => {
             ₹300 <sub>(plus tax)</sub>
           </h4>
         </div>
-        <button className="flex items-center text-lg gap-1 bg-zomato-400 px-3 py-2 text-white rounded-lg itemscenter">
+        <button className="flex items-center text-lg gap-1 bg-zomato-400 px-3 py-2 text-white rounded-lg items-center">
           Continue <IoMdArrowDropright className="text-2xl" />
         </button>
       </div>
@@ -32,7 +32,7 @@ const CartSm = ({ toggle }) => {
 const CartLg = ({ toggle }) => {
   return (
     <>
-      <div className="hidden md:flex items-center justify-between w-full container px-52 py-1 mx-auto">
+      <div className="hidden md:flex items-center justify-between w-full container lg:px-52 py-1 mx-auto">
         <div className="flex gap-4 items-center">
           <h4 className="border border-gray-300 p-1 rounded " onClick={toggle}>
             <IoMdArrowDropup className="text-2xl" />
@@ -60,7 +60,7 @@ const CartContainer = () => {
   return (
     <>
       {isOpen && (
-        <div className="flex flex-col gap-3 fixed w-full h-48 overflow-y-scroll bg-white z-30 p-2 bottom-16 md:px-52 ">
+        <div className="flex flex-col gap-3 fixed w-full h-48 overflow-y-scroll bg-white z-30 p-2 bottom-16 lg:px-52 ">
           <div className="flex items-center justify-between">
             <h3 className="text-2xl">Your Orders</h3>
             <IoIosClose className="text-4xl" onClick={CloseCart} />
