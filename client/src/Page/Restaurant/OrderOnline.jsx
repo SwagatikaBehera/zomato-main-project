@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineCompass } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 
@@ -7,7 +8,25 @@ import FloatMenubtn from "../../Components/Restaurant/Order-Online/FloatMenubtn"
 import FoodList from "../../Components/Restaurant/Order-Online/FoodList";
 import MenuListContainer from "../../Components/Restaurant/Order-Online/MenuListContainer";
 
+// Redux
+import { getFoodlist } from "../../Redux/Reducer/food/food.action";
+
 const OrderOnline = () => {
+  const [menu, setMenu] = useState([]);
+
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    reduxState &&
+      dispatch(getFoodlist(reduxState?.menu)).then((data) =>
+        setMenu(data?.payload?.menus?.menus)
+      );
+  }, [reduxState]);
+
   return (
     <>
       <div className="w-full h-screen flex">
@@ -30,83 +49,9 @@ const OrderOnline = () => {
           </div>
 
           <section className="flex flex-col gap-3 md:gap-10 h-screen md:overflow-y-scroll">
-            <FoodList
-              title="Recommended"
-              items={[
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-              ]}
-            />
-
-            <FoodList
-              title="Whopper Friday (30% OFF)"
-              items={[
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-                {
-                  image:
-                    "https://b.zmtcdn.com/data/dish_photos/79a/18fd5dde339078ab4b6f846a08c2779a.jpg",
-                  title:
-                    "2 Chicken Whopper + 1 King Fries + 1 Chicken fries + 2 Pepsi Can",
-                  rating: "3",
-                  votes: "278",
-                  price: "300",
-                  description:
-                    "Two much mutton as delicious flame-grilled patties, farm-fresh veggies and mayo is what",
-                },
-              ]}
-            />
+            {menu.map((item) => (
+              <FoodList key={item._id} {...item} />
+            ))}
           </section>
         </div>
       </div>
