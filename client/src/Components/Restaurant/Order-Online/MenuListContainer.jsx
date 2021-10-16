@@ -26,13 +26,13 @@ const MenuListContainer = (props) => {
           name="Recommlnded"
           items={["", ""]}
           onClickHandler={onClickHandler}
-          isActive={selected === "Recommelnded"}
+          isActive={selected === "Recommlnded"}
         />
         <MenuCategory
           name="Recommelnded"
           items={["", ""]}
           onClickHandler={onClickHandler}
-          isActive={selected === "Recommlnded"}
+          isActive={selected === "Recommelnded"}
         />
       </div>
     </>
