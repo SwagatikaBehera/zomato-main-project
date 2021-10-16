@@ -51,7 +51,10 @@ const Review = (props) => {
           </h4>
         </div>
         <div className="w-full">
-          <p className="w-full text-gray-500 text-lg">{props.reviewText}</p>
+          <p className="w-full text-gray-500 text-lg">
+            The chicken wasn't cooked properly and the prawns quantity as well
+            as size wasn't up to the mark
+          </p>
         </div>
       </div>
     </>
